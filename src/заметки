@@ -1,0 +1,54 @@
+
+/* Элемент | http://localhost:3000/ */
+
+.navbar__callback > img:nth-child(2) {
+  margin-left: 5px;
+  margin-right: 2px;
+}
+
+/* Элемент | http://localhost:3000/ */
+
+.navbar__callback {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+
+/* Элемент | http://localhost:3000/ */
+
+.navbar__phone {
+  font-size: 16px;
+}
+
+/* Элемент | http://localhost:3000/ */
+
+.navbar__phone_more {
+  font-size: 24px;
+}
+
+/* Элемент | http://localhost:3000/ */
+
+.navbar__contacts {
+  margin-right: 12px;
+}
+
+/* styles.min.css | http://localhost:3000/css/styles.min.css?browsersync=1580347434135 */
+
+.navbar {
+  /* padding-top: 19px; */
+  padding-top: 15px;
+  align-items: center;
+}
+
+.navbar__logo {
+  /* top: 0; */
+  /* left: calc((100% - 1060px)/ 2); */
+  top: -6px;
+  left: calc((100% - 995px)/ 2);
+}
+
+.navbar__logo-text {
+  /* margin-left: 130px; */
+  margin-left: 171px;
+  margin-top: 6px;
+}

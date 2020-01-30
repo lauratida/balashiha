@@ -51,9 +51,9 @@ gulp.task('styles', function() {
 // Scripts & JS Libraries
 gulp.task('scripts', function() {
 	return gulp.src([
-    // 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
-    // 'node_modules/swiper/js/swiper.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
-    // 'src/js/_libs.js', // JS libraries (all in one)
+    'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+    'node_modules/swiper/js/swiper.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+    'src/js/_libs.js', // JS libraries (all in one)
     'src/js/modules/*.js',
 		'src/js/_custom.js', // Custom scripts. Always at the end
 		])
@@ -64,7 +64,18 @@ gulp.task('scripts', function() {
 });
 
 // Responsive Images
-var quality = 95; // Responsive images quality
+var quality = 45; // Responsive images quality
+
+// Produce thumbs images
+gulp.task('img-responsive-thumbs', async function() {
+	return gulp.src('src/img/_src/**/*.{png,jpg,jpeg,webp,raw}')
+		.pipe(newer('src/img/@1xthumbs'))
+		.pipe(responsive({
+			'**/*': { width: '100%', quality: 5 }
+		})).on('error', function (e) { console.log(e) })
+		.pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
+		.pipe(gulp.dest('src/img/@1xthumbs'))
+});
 
 // Produce @1x images
 gulp.task('img-responsive-1x', async function() {
@@ -86,7 +97,7 @@ gulp.task('img-responsive-2x', async function() {
 		.pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
 		.pipe(gulp.dest('src/img/@2x'))
 });
-gulp.task('img', gulp.series('img-responsive-1x', 'img-responsive-2x', bsReload));
+gulp.task('img', gulp.series('img-responsive-1x', 'img-responsive-2x', 'img-responsive-thumbs', bsReload));
 
 // Clean @*x IMG's
 gulp.task('cleanimg', function() {

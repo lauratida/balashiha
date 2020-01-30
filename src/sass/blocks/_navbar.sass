@@ -1,0 +1,33 @@
+.navbar
+  background-size: contain;
+  background-repeat: repeat;
+  display: flex
+  justify-content: space-between
+  position: relative
+  padding-bottom: 19px
+  padding-top: 15px;
+  align-items: center;
+  &__logo
+    position: absolute
+    top: -6px;
+    left: calc((100% - 995px)/ 2);
+  &__logo-text
+    margin-left: 171px;
+    margin-top: 6px;
+  &__contacts
+    display: flex
+    flex-direction: column
+    +RobotoReg
+    margin-right: 12px;
+  &__callback
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    color: black
+    & img:nth-last-child(2)
+      margin-left: 5px;
+      margin-right: 2px;
+  &__phone
+    font-size: 16px;
+    &_more
+      font-size: 24px;
